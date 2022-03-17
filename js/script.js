@@ -1,7 +1,7 @@
 const init = () => {
     const wrapper = document.querySelector('.wrapper')
     const coverImg = wrapper.querySelector('.img-cover img')
-    const addBtn = wrapper.querySelector('.fa-plus-circle')
+    const addBtn = wrapper.querySelector('.fa-cog')
 
     addBtn.addEventListener('click', e => {
         const input = document.createElement('input')
@@ -26,6 +26,10 @@ const init = () => {
 
         input.remove()
     })
+
+    document.onscroll = function(e) {
+        console.log(document.body.scrollTop)
+    }
 }
 
 window.onload = init
