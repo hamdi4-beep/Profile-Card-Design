@@ -4,11 +4,16 @@
   padding: 0;
 }
 
+:root {
+  --bg-color: #EEE;
+  --headers-color: purple;
+}
+
 body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   display: grid;
   place-content: center;
-  background: #EEE;
+  background: var(--bg-color);
   min-height: 100vh;
   padding: 2rem;
 }
@@ -114,38 +119,34 @@ body .card-wrapper .content .header p::before, body .card-wrapper .content .head
 body .card-wrapper .content .header p::after {
   background: linear-gradient(to right, black, white);
 }
-body .card-wrapper .content .skills-sections {
-  display: grid;
-  justify-content: center;
-  padding: 1em;
-  border-top: 1px solid #DDD;
-}
-body .card-wrapper .content .skills-sections .skills-items {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  display: flex;
-  margin-top: 0.4rem;
-  margin-inline: auto;
-  gap: 0.5em;
-}
-body .card-wrapper .content .skills-sections .skills-items p {
+body .card-wrapper .content .header .buttons button {
+  background: none;
   border: 1px solid purple;
-  display: inline-block;
-  padding: 0.3em 0.4rem;
+  padding: 0.3em 1em;
+  font: inherit;
+  margin-top: 1em;
+  transition: all 0.5s ease;
+  cursor: pointer;
   position: relative;
 }
-body .card-wrapper .content .skills-sections .skills-items p:hover {
-  background: purple;
-  color: white;
-}
-body .card-wrapper .content .skills-sections .skills-items p::after {
+body .card-wrapper .content .header .buttons button::after {
   content: "";
   display: block;
   position: absolute;
-  border: 1px solid #EEE;
   inset: 0;
-  padding: 0.5rem;
+  border: 1px solid white;
   transform: rotate(4deg);
+}
+body .card-wrapper .content .header .buttons button:hover {
+  background: purple;
+  color: white;
+}
+body .card-wrapper .content .header .buttons button:first-child {
+  margin-right: 0.5em;
+}
+body .card-wrapper .content .header .buttons .clicked {
+  background: #f72585;
+  color: white;
 }
 body .card-wrapper .content .social-links {
   padding: 1em;
@@ -162,6 +163,55 @@ body .card-wrapper .content .social-links .fab {
 }
 body .card-wrapper .content .social-links .fab:hover {
   opacity: 1;
+}
+body .card-wrapper .skills-sections {
+  display: grid;
+  justify-content: center;
+  padding: 1em;
+  border-top: 1px solid #DDD;
+}
+body .card-wrapper .skills-sections .skills-items {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  display: flex;
+  margin-top: 0.4rem;
+  margin-inline: auto;
+  gap: 0.5em;
+}
+body .card-wrapper .skills-sections .skills-items p {
+  border: 1px solid purple;
+  display: inline-block;
+  padding: 0.3em 0.4rem;
+  position: relative;
+  z-index: 1;
+}
+body .card-wrapper .skills-sections .skills-items p::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background: purple;
+  width: 50%;
+  height: 100%;
+  inset: 0;
+  opacity: 0.5;
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+body .card-wrapper .skills-sections .skills-items p:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+body .card-wrapper .skills-sections .skills-items p:hover {
+  color: white;
+}
+body .card-wrapper .skills-items p::after, body .card-wrapper .buttons button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  border: 1px solid #EEE;
+  padding: 0.5em;
+  transform: rotate(4deg);
 }
 body .card-wrapper .info {
   display: flex;
@@ -180,7 +230,7 @@ body .card-wrapper .info > * h1 {
   margin-top: 0.3em;
 }
 body .card-wrapper .info > * h3 {
-  color: #003049;
+  color: var(--headers-color);
 }
 body .card-wrapper .fa-cog {
   position: absolute;
@@ -206,6 +256,15 @@ body dialog {
   padding: 1em;
   display: none;
   margin: auto;
+  box-shadow: 0 0 0.1em black;
+  max-width: 30ch;
+  width: 100%;
+}
+body dialog::backdrop {
+  background: linear-gradient(to bottom right, white, rgba(0, 0, 0, 0.8));
+}
+body dialog span {
+  color: #f72585;
 }
 
 @media only screen and (max-width: 425px) {

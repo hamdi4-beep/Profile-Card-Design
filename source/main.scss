@@ -4,11 +4,16 @@
     padding: 0;
 }
 
+:root {
+    --bg-color: #EEE;
+    --headers-color: purple;
+}
+
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: grid;
     place-content: center;
-    background: #EEE;
+    background: var(--bg-color);
     min-height: 100vh;
     padding: 2rem;
 
@@ -128,42 +133,41 @@ body {
                         background: linear-gradient(to right, black, white);
                     }
                 }
-            }
-    
-            .skills-sections {
-                display: grid;
-                justify-content: center;
-                padding: 1em;
-                border-top: 1px solid #DDD;
 
-                .skills-items {
-                    display: grid;
-                    grid-template-columns: repeat(2, auto);
-                    display: flex;
-                    margin-top: .4rem;
-                    margin-inline: auto;
-                    gap: .5em;
+                .buttons {
 
-                    p {
+                    button {
+                        background: none;
                         border: 1px solid purple;
-                        display: inline-block;
-                        padding: .3em .4rem;
+                        padding: .3em 1em;
+                        font: inherit;
+                        margin-top: 1em;
+                        transition: all .5s ease;
+                        cursor: pointer;
                         position: relative;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            inset: 0;
+                            border: 1px solid white;
+                            transform: rotate(4deg);
+                        }
 
                         &:hover {
                             background: purple;
                             color: white;
                         }
 
-                        &::after {
-                            content: '';
-                            display: block;
-                            position: absolute;
-                            border: 1px solid #EEE;
-                            inset: 0;
-                            padding: .5rem;
-                            transform: rotate(4deg);
+                        &:first-child {
+                            margin-right: .5em;
                         }
+                    }
+
+                    .clicked {
+                        background: #f72585;
+                        color: white;
                     }
                 }
             }
@@ -188,6 +192,62 @@ body {
                 }
             }
         }
+
+        .skills-sections {
+            display: grid;
+            justify-content: center;
+            padding: 1em;
+            border-top: 1px solid #DDD;
+
+            .skills-items {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                display: flex;
+                margin-top: .4rem;
+                margin-inline: auto;
+                gap: .5em;
+
+                p {
+                    border: 1px solid purple;
+                    display: inline-block;
+                    padding: .3em .4rem;
+                    position: relative;
+                    z-index: 1;
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        background: purple;
+                        width: 50%;
+                        height: 100%;
+                        inset: 0;
+                        opacity: .5;
+                        transition: all .5s ease;
+                        z-index: -1;
+                    }
+
+                    &:hover::before {
+                        width: 100%;
+                        opacity: 1;
+                    }
+
+                    &:hover {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .skills-items p::after, .buttons button::after {
+            content: '';
+            display: block;
+            position: absolute;
+            inset: 0;
+            border: 1px solid #EEE;
+            padding: .5em;
+            transform: rotate(4deg);
+        }
     
         .info {
             display: flex;
@@ -208,7 +268,7 @@ body {
                 }
     
                 h3 {
-                    color: #003049;
+                    color: var(--headers-color)
                 }
             }
         }
@@ -241,6 +301,17 @@ body {
         padding: 1em;
         display: none;
         margin: auto;
+        box-shadow: 0 0 .1em black;
+        max-width: 30ch;
+        width: 100%;
+
+        &::backdrop {
+            background: linear-gradient(to bottom right, rgba(255, 255, 255 / .1), rgba(0 0 0 / .8));
+        }
+
+        span {
+            color: #f72585;
+        }
     }
 }
 
