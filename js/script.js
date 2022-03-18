@@ -8,39 +8,51 @@ const init = () => {
     const followersContainer = wrapper.querySelector('.followers-container')
     const header = wrapper.querySelector('.header')
     const closeBtn = wrapper.querySelector('#close')
-    let likesCount = 0
-    let followersCount = 0
+    let likesCount
+    let followersCount
+    let ID
+
+    fetch('http://localhost:3000/profile').then(res => {
+        if (res.ok) return res.json()
+    }).then(data => {
+        for (const user of data) {
+            if (user.likes) {
+                const likeBtn = header.querySelector('#like')
+                const likes = likesContainer.querySelector('#likes')
+                likes.textContent = user.likes
+                likesCount = user.likes
+                likeBtn.textContent = 'Liked'
+                likeBtn.classList.add('clicked')
+            }
+        }
+    })
 
     closeBtn.addEventListener('click', e => dialog.remove())
 
     header.addEventListener('click', e => {
-        const _target = e.target
+        const target = e.target // the btn that triggers the event listener
 
         if (e.target.id == 'like') {
-            const h1 = likesContainer.querySelector('h1')
-
-            if (likesCount == 0) {
-                h1.textContent = ++likesCount
-                _target.textContent = 'Liked'
-                _target.classList.add('clicked')
+            if (target.textContent != 'Liked') {
+                target.textContent = 'Liked'
+                target.classList.add('clicked')
+                updateInfo(target)
             } else {
-                h1.textContent = --likesCount
-                _target.textContent = 'Like'
-                _target.classList.remove('clicked')
+                target.textContent = 'Like'
+                target.classList.remove('clicked')
+                updateInfo()
             }
         }
 
         if (e.target.id == 'follow') {
-            const h1 = followersContainer.querySelector('h1')
-            
-            if (followersCount == 0) {
-                h1.textContent = ++followersCount
-                _target.textContent = 'Following'
-                _target.classList.add('clicked')
+            if (target.textContent != 'Following') {
+                target.textContent = 'Following'
+                target.classList.add('clicked')
+                updateInfo(target)
             } else {
-                h1.textContent = --followersCount
-                _target.textContent = 'Follow'
-                _target.classList.remove('clicked')
+                target.textContent = 'Follow'
+                target.classList.remove('clicked')
+                updateInfo()
             }
         }
     })
@@ -99,6 +111,14 @@ const init = () => {
             behavior: 'smooth'
         })
     })
+
+    function updateInfo(elem) {
+        if (elem) {
+            console.log(elem)
+        } else {
+            console.log('No longer clicked!')
+        }
+    }
 }
 
 window.onload = init

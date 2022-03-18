@@ -6,7 +6,7 @@
 
 :root {
   --bg-color: #EEE;
-  --headers-color: purple;
+  --headers-color: #800080;
 }
 
 body {
@@ -22,7 +22,7 @@ body .card-wrapper {
   background: white;
   justify-self: center;
   width: 100%;
-  max-width: 30rem;
+  max-width: 35rem;
 }
 body .card-wrapper .img-cover-wrapper {
   position: relative;
@@ -171,9 +171,9 @@ body .card-wrapper .skills-sections {
   border-top: 1px solid #DDD;
 }
 body .card-wrapper .skills-sections .skills-items {
-  display: grid;
   grid-template-columns: repeat(2, auto);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
   margin-top: 0.4rem;
   margin-inline: auto;
   gap: 0.5em;
@@ -213,6 +213,9 @@ body .card-wrapper .skills-items p::after, body .card-wrapper .buttons button::a
   padding: 0.5em;
   transform: rotate(4deg);
 }
+body .card-wrapper .skills-items p::after {
+  transform: rotate(-4deg);
+}
 body .card-wrapper .info {
   display: flex;
   margin-top: 4rem;
@@ -230,6 +233,7 @@ body .card-wrapper .info > * h1 {
   margin-top: 0.3em;
 }
 body .card-wrapper .info > * h3 {
+  font-size: 3.5ch;
   color: var(--headers-color);
 }
 body .card-wrapper .fa-cog {
