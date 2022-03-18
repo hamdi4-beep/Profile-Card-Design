@@ -11,10 +11,7 @@ const init = () => {
     let likesCount = 0
     let followersCount = 0
 
-    closeBtn.addEventListener('click', e => {
-        dialog.close()
-        dialog.remove()
-    })
+    closeBtn.addEventListener('click', e => dialog.remove())
 
     header.addEventListener('click', e => {
         const _target = e.target
@@ -38,7 +35,7 @@ const init = () => {
             
             if (followersCount == 0) {
                 h1.textContent = ++followersCount
-                _target.textContent = 'Followed'
+                _target.textContent = 'Following'
                 _target.classList.add('clicked')
             } else {
                 h1.textContent = --followersCount
@@ -74,9 +71,9 @@ const init = () => {
 
     document.onscroll = function(e) {
         if (document.documentElement.scrollTop != 0) {
-            if (dialog) {
+            if (dialog && dialog.open) {
                 dialog.style.display = 'none'
-                dialog.close()
+                dialog.remove()
             }
 
             angleUp.style.display = 'block'
