@@ -153,6 +153,7 @@ body .card-wrapper .content .social-links {
 }
 body .card-wrapper .content .social-links a {
   color: black;
+  text-decoration: none;
 }
 body .card-wrapper .content .social-links .fab {
   display: inline-block;
@@ -184,6 +185,7 @@ body .card-wrapper .skills-sections .skills-items p {
   padding: 0.3em 0.4rem;
   position: relative;
   z-index: 1;
+  cursor: help;
 }
 body .card-wrapper .skills-sections .skills-items p::before {
   content: "";
@@ -272,9 +274,14 @@ body dialog span {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 325px) {
   body {
     padding: 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  body {
+    padding: 2em;
   }
 }
 

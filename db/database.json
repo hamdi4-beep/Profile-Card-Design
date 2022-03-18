@@ -1,9 +1,9 @@
 {
   "profile": [
-      {
-          "likes": 0,
-          "followers": 0,
-          "id": 0
-      }
+    {
+      "likes": "0",
+      "followers": "0",
+      "id": 0
+    }
   ]
 }

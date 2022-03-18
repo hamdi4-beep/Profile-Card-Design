@@ -7,25 +7,28 @@ const init = () => {
     const likesContainer = wrapper.querySelector('.likes-container')
     const followersContainer = wrapper.querySelector('.followers-container')
     const header = wrapper.querySelector('.header')
+    const followers = followersContainer.querySelector('#followers')
+    const likes = likesContainer.querySelector('#likes')
+    const likeBtn = header.querySelector('#like')
+    const followBtn = header.querySelector('#follow')
     const closeBtn = wrapper.querySelector('#close')
-    let likesCount
-    let followersCount
-    let ID
+    let profile = window.localStorage.getItem('profile')
 
-    fetch('http://localhost:3000/profile').then(res => {
-        if (res.ok) return res.json()
-    }).then(data => {
-        for (const user of data) {
-            if (user.likes) {
-                const likeBtn = header.querySelector('#like')
-                const likes = likesContainer.querySelector('#likes')
-                likes.textContent = user.likes
-                likesCount = user.likes
-                likeBtn.textContent = 'Liked'
-                likeBtn.classList.add('clicked')
-            }
+    if (profile) {
+        profile = JSON.parse(profile)
+        followers.textContent = profile.followers
+        likes.textContent = profile.likes
+
+        if (followers.textContent != 0) {
+            followBtn.textContent = 'Following'
+            followBtn.classList.add('clicked')
         }
-    })
+
+        if (likes.textContent != 0) {
+            likeBtn.textContent = 'Liked'
+            likeBtn.classList.add('clicked')
+        }
+    }
 
     closeBtn.addEventListener('click', e => dialog.remove())
 
@@ -33,27 +36,11 @@ const init = () => {
         const target = e.target // the btn that triggers the event listener
 
         if (e.target.id == 'like') {
-            if (target.textContent != 'Liked') {
-                target.textContent = 'Liked'
-                target.classList.add('clicked')
-                updateInfo(target)
-            } else {
-                target.textContent = 'Like'
-                target.classList.remove('clicked')
-                updateInfo()
-            }
+            updateInfo(e)
         }
 
         if (e.target.id == 'follow') {
-            if (target.textContent != 'Following') {
-                target.textContent = 'Following'
-                target.classList.add('clicked')
-                updateInfo(target)
-            } else {
-                target.textContent = 'Follow'
-                target.classList.remove('clicked')
-                updateInfo()
-            }
+            updateInfo(e)
         }
     })
 
@@ -99,7 +86,7 @@ const init = () => {
                     dialog.style.display = 'block'
                     dialog.showModal()
                 } else {
-                    alert('Dialog API is not supported...')
+                    console.log('Dialog API is not supported...')
                 }
             }
         }
@@ -112,11 +99,40 @@ const init = () => {
         })
     })
 
-    function updateInfo(elem) {
-        if (elem) {
-            console.log(elem)
-        } else {
-            console.log('No longer clicked!')
+    function updateInfo(event) {
+        const followers = followersContainer.querySelector('#followers')
+        const likes = likesContainer.querySelector('#likes')
+        const target = event.target
+
+        if (target) {
+            if (target.id == 'like') {
+                if (target.textContent != 'Liked') {
+                    likes.textContent = 1
+                    target.textContent = 'Liked'
+                    target.classList.add('clicked')
+                } else {
+                    likes.textContent = 0
+                    target.textContent = 'Like'
+                    target.classList.remove('clicked')
+                }
+            }
+
+            if (target.id == 'follow') {
+                if (target.textContent != 'Following') {
+                    followers.textContent = 1
+                    target.textContent = 'Following'
+                    target.classList.add('clicked')
+                } else {
+                    followers.textContent = 0
+                    target.textContent = 'Follow'
+                    target.classList.remove('clicked')
+                }
+            }
+
+            window.localStorage.setItem('profile', JSON.stringify({
+                followers: followers.textContent,
+                likes: likes.textContent
+            }))
         }
     }
 }
