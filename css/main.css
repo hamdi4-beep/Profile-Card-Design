@@ -265,6 +265,7 @@ body dialog::backdrop {
 }
 body dialog span {
   color: #f72585;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 425px) {
