@@ -148,10 +148,21 @@ body {
                         border: 1px solid purple;
                         display: inline-block;
                         padding: .3em .4rem;
+                        position: relative;
 
                         &:hover {
                             background: purple;
                             color: white;
+                        }
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            border: 1px solid #EEE;
+                            inset: 0;
+                            padding: .5rem;
+                            transform: rotate(4deg);
                         }
                     }
                 }
@@ -215,6 +226,21 @@ body {
                 color: #DDD;
             }
         }
+    }
+
+    .fa-angle-up {
+        position: fixed;
+        right: 3rem;
+        bottom: 2rem;
+        font-size: 3ch;
+        display: none;
+    }
+
+    dialog {
+        border: none;
+        padding: 1em;
+        display: none;
+        margin: auto;
     }
 }
 

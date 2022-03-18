@@ -132,10 +132,20 @@ body .card-wrapper .content .skills-sections .skills-items p {
   border: 1px solid purple;
   display: inline-block;
   padding: 0.3em 0.4rem;
+  position: relative;
 }
 body .card-wrapper .content .skills-sections .skills-items p:hover {
   background: purple;
   color: white;
+}
+body .card-wrapper .content .skills-sections .skills-items p::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1px solid #EEE;
+  inset: 0;
+  padding: 0.5rem;
+  transform: rotate(4deg);
 }
 body .card-wrapper .content .social-links {
   padding: 1em;
@@ -183,6 +193,19 @@ body .card-wrapper .fa-cog {
 }
 body .card-wrapper .fa-cog:hover {
   color: #DDD;
+}
+body .fa-angle-up {
+  position: fixed;
+  right: 3rem;
+  bottom: 2rem;
+  font-size: 3ch;
+  display: none;
+}
+body dialog {
+  border: none;
+  padding: 1em;
+  display: none;
+  margin: auto;
 }
 
 @media only screen and (max-width: 425px) {
