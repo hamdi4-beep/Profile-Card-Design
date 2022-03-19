@@ -149,21 +149,39 @@ body .card-wrapper .content .header .buttons .clicked {
   color: white;
 }
 body .card-wrapper .content .social-links {
+  position: relative;
   padding: 1em;
 }
 body .card-wrapper .content .social-links a {
-  color: black;
   text-decoration: none;
 }
 body .card-wrapper .content .social-links .fab {
   display: inline-block;
   font-size: 1.6em;
   margin-inline: 0.2em;
-  opacity: 0.5;
   transition: opacity 0.5s ease;
 }
-body .card-wrapper .content .social-links .fab:hover {
+body .card-wrapper .content .social-links .fab::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  width: 1em;
+  height: 1px;
+  background-color: black;
+  opacity: 0;
+}
+body .card-wrapper .content .social-links .fab:hover::after {
   opacity: 1;
+}
+body .card-wrapper .content .social-links .fa-facebook {
+  color: #385898;
+}
+body .card-wrapper .content .social-links .fa-github-alt {
+  color: #24292f;
+}
+body .card-wrapper .content .social-links .fa-twitter {
+  color: #1d9bf0;
 }
 body .card-wrapper .skills-sections {
   display: grid;
@@ -267,7 +285,7 @@ body dialog {
   width: 100%;
 }
 body dialog::backdrop {
-  background: linear-gradient(to bottom right, white, rgba(0, 0, 0, 0.8));
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5) 10%, rgba(0, 0, 0, 0.9));
 }
 body dialog span {
   color: #f72585;
