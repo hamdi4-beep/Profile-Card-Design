@@ -204,21 +204,22 @@ body .card-wrapper .skills-sections .skills-items p {
   position: relative;
   z-index: 1;
   cursor: help;
+  overflow: hidden;
 }
 body .card-wrapper .skills-sections .skills-items p::before {
   content: "";
   display: block;
   position: absolute;
   background: purple;
-  width: 50%;
-  height: 100%;
+  width: calc(100% - 0.8em);
+  clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
   inset: 0;
   opacity: 0.5;
   transition: all 0.5s ease;
   z-index: -1;
 }
 body .card-wrapper .skills-sections .skills-items p:hover::before {
-  width: 100%;
+  width: 200%;
   opacity: 1;
 }
 body .card-wrapper .skills-sections .skills-items p:hover {

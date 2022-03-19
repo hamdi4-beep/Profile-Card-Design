@@ -237,14 +237,15 @@ body {
                     position: relative;
                     z-index: 1;
                     cursor: help;
+                    overflow: hidden;
 
                     &::before {
                         content: '';
                         display: block;
                         position: absolute;
                         background: purple;
-                        width: 50%;
-                        height: 100%;
+                        width: calc(100% - .8em);
+                        clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
                         inset: 0;
                         opacity: .5;
                         transition: all .5s ease;
@@ -252,7 +253,7 @@ body {
                     }
 
                     &:hover::before {
-                        width: 100%;
+                        width: 200%;
                         opacity: 1;
                     }
 
