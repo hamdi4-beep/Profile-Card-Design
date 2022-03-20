@@ -74,6 +74,36 @@ body .card-wrapper .img-cover-wrapper .img-cover img, body .card-wrapper .img-co
   width: 100%;
   height: 100%;
 }
+body .card-wrapper .social-links {
+  position: absolute;
+  top: 12.4rem;
+  left: 0rem;
+  padding: 1em;
+  transform: rotate(-4deg);
+  /* .fa-github-alt:hover {
+      // color: #24292f;
+  } */
+}
+body .card-wrapper .social-links a {
+  text-decoration: none;
+}
+body .card-wrapper .social-links .fab {
+  display: inline-block;
+  font-size: 1.6em;
+  margin-inline: 0.2em;
+  transform: none;
+  transition: transform 0.5s ease;
+  color: white;
+}
+body .card-wrapper .social-links .fab:hover {
+  transform: rotate(360deg);
+}
+body .card-wrapper .social-links .fa-facebook-f:hover {
+  color: #385898;
+}
+body .card-wrapper .social-links .fa-twitter:hover {
+  color: #1d9bf0;
+}
 body .card-wrapper .content {
   text-align: center;
   padding: 2em;
@@ -147,32 +177,6 @@ body .card-wrapper .content .header .buttons button:first-child {
 body .card-wrapper .content .header .buttons .clicked {
   background: #f72585;
   color: white;
-}
-body .card-wrapper .content .social-links {
-  position: relative;
-  padding: 1em;
-}
-body .card-wrapper .content .social-links a {
-  text-decoration: none;
-}
-body .card-wrapper .content .social-links .fab {
-  display: inline-block;
-  font-size: 1.6em;
-  margin-inline: 0.2em;
-  transform: none;
-  transition: transform 0.5s ease;
-}
-body .card-wrapper .content .social-links .fab:hover {
-  transform: rotate(360deg);
-}
-body .card-wrapper .content .social-links .fa-facebook-f {
-  color: #385898;
-}
-body .card-wrapper .content .social-links .fa-github-alt {
-  color: #24292f;
-}
-body .card-wrapper .content .social-links .fa-twitter {
-  color: #1d9bf0;
 }
 body .card-wrapper .content .hobby-section {
   margin-top: 1em;
@@ -321,7 +325,7 @@ body dialog span {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 425px) {
   body {
     padding: 0;
   }
@@ -332,6 +336,20 @@ body dialog span {
 
   .wrapper .card-wrapper .fa-cog {
     right: 2rem;
+  }
+
+  .wrapper .card-wrapper .social-links {
+    transform: none;
+    top: 9em;
+    left: 1.5rem;
+    padding: 0;
+  }
+  .wrapper .card-wrapper .social-links .fab {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .wrapper .card-wrapper .social-links .fab:not(:last-child) {
+    color: red;
   }
 }
 @media only screen and (min-width: 768px) {

@@ -83,6 +83,43 @@ body {
                 }
             }
         }
+
+        .social-links {
+            position: absolute;
+            top: 12.4rem;
+            left: 0rem;
+            padding: 1em;
+            transform: rotate(-4deg);
+
+            a {
+                text-decoration: none;
+            }
+
+            .fab {
+                display: inline-block;
+                font-size: 1.6em;
+                margin-inline: .2em;
+                transform: none;
+                transition: transform .5s ease;
+                color: white;
+
+                &:hover {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .fa-facebook-f:hover {
+                color: #385898;
+            }
+
+            /* .fa-github-alt:hover {
+                // color: #24292f;
+            } */
+
+            .fa-twitter:hover {
+                color: #1d9bf0;
+            }
+        }
     
         .content {
             text-align: center;
@@ -173,39 +210,6 @@ body {
                 }
 
                 
-            }
-
-            .social-links {
-                position: relative;
-                padding: 1em;
-    
-                a {
-                    text-decoration: none;
-                }
-    
-                .fab {
-                    display: inline-block;
-                    font-size: 1.6em;
-                    margin-inline: .2em;
-                    transform: none;
-                    transition: transform .5s ease;
-
-                    &:hover {
-                        transform: rotate(360deg);
-                    }
-                }
-
-                .fa-facebook-f {
-                    color: #385898;
-                }
-
-                .fa-github-alt {
-                    color: #24292f;
-                }
-
-                .fa-twitter {
-                    color: #1d9bf0;
-                }
             }
 
             .hobby-section {
@@ -380,7 +384,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 425px) {
     body {
         padding: 0;
     }
@@ -391,6 +395,22 @@ body {
 
     .wrapper .card-wrapper .fa-cog {
         right: 2rem;
+    }
+
+    .wrapper .card-wrapper .social-links {
+        transform: none;
+        top: 9em;
+        left: 1.5rem;
+        padding: 0;
+
+        .fab {
+            display: block;
+            margin-bottom: .5rem;
+
+            &:not(:last-child) {
+                color: red;
+            }
+        }
     }
 }
 

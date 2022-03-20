@@ -17,13 +17,11 @@ const init = () => {
         state = JSON.parse(window.localStorage.getItem('profile'))
         
         if (state.liked) {
-            likeBtn.textContent = 'Liked'
-            likeBtn.classList.add('clicked')
+            updateInfo(likeBtn)
         }
 
         if (state.followed) {
-            followBtn.textContent = 'Following'
-            followBtn.classList.add('clicked')
+            updateInfo(followBtn)
         }
     }
 
@@ -31,14 +29,7 @@ const init = () => {
 
     header.addEventListener('click', e => {
         const target = e.target // the btn that triggers the event listener
-
-        if (e.target.id == 'like') {
-            updateInfo(e)
-        }
-
-        if (e.target.id == 'follow') {
-            updateInfo(e)
-        }
+        updateInfo(target)
     })
 
     addBtn.addEventListener('click', e => {
@@ -68,7 +59,7 @@ const init = () => {
     document.onscroll = function(e) {
         if (document.documentElement.scrollTop != 0) {
             if (dialog && dialog.open) {
-                dialog.style.display = 'none'
+                // dialog.style.display = 'none'
                 dialog.remove()
             }
         }
@@ -85,30 +76,28 @@ const init = () => {
         }
     }
 
-    function updateInfo(event) {
-        const target = event.target
-
-        if (target) {
-            if (target.id == 'like') {
-                if (target.textContent != 'Liked') {
-                    target.textContent = 'Liked'
-                    target.classList.add('clicked')
+    function updateInfo(elem) {
+        if (elem) {
+            if (elem.id == 'like') {
+                if (elem.textContent != 'Liked') {
+                    elem.textContent = 'Liked'
+                    elem.classList.add('clicked')
                     state.liked = true
                 } else {
-                    target.textContent = 'Like'
-                    target.classList.remove('clicked')
+                    elem.textContent = 'Like'
+                    elem.classList.remove('clicked')
                     state.liked = false
                 }
             }
 
-            if (target.id == 'follow') {
-                if (target.textContent != 'Following') {
-                    target.textContent = 'Following'
-                    target.classList.add('clicked')
+            if (elem.id == 'follow') {
+                if (elem.textContent != 'Following') {
+                    elem.textContent = 'Following'
+                    elem.classList.add('clicked')
                     state.followed = true
                 } else {
-                    target.textContent = 'Follow'
-                    target.classList.remove('clicked')
+                    elem.textContent = 'Follow'
+                    elem.classList.remove('clicked')
                     state.followed = false
                 }
             }
