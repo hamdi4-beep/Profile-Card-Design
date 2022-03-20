@@ -2,31 +2,28 @@ const init = () => {
     const wrapper = document.querySelector('.wrapper')
     const coverImg = wrapper.querySelector('.img-cover img')
     const addBtn = wrapper.querySelector('.fa-cog')
-    const angleUp = wrapper.querySelector('.fa-angle-up')
     const dialog = wrapper.querySelector('dialog')
-    const likesContainer = wrapper.querySelector('.likes-container')
-    const followersContainer = wrapper.querySelector('.followers-container')
     const header = wrapper.querySelector('.header')
-    const followers = followersContainer.querySelector('#followers')
-    const likes = likesContainer.querySelector('#likes')
     const likeBtn = header.querySelector('#like')
     const followBtn = header.querySelector('#follow')
     const closeBtn = wrapper.querySelector('#close')
-    let profile = window.localStorage.getItem('profile')
+    
+    let state = {
+        liked: false,
+        followed: false,
+    }
 
-    if (profile) {
-        profile = JSON.parse(profile)
-        followers.textContent = profile.followers
-        likes.textContent = profile.likes
-
-        if (followers.textContent != 0) {
-            followBtn.textContent = 'Following'
-            followBtn.classList.add('clicked')
-        }
-
-        if (likes.textContent != 0) {
+    if (window.localStorage.getItem('profile')) {
+        state = JSON.parse(window.localStorage.getItem('profile'))
+        
+        if (state.liked) {
             likeBtn.textContent = 'Liked'
             likeBtn.classList.add('clicked')
+        }
+
+        if (state.followed) {
+            followBtn.textContent = 'Following'
+            followBtn.classList.add('clicked')
         }
     }
 
@@ -74,13 +71,9 @@ const init = () => {
                 dialog.style.display = 'none'
                 dialog.remove()
             }
-
-            angleUp.style.display = 'block'
-        } else {
-            angleUp.style.display = 'none'
         }
         
-        if ((window.pageYOffset + window.innerHeight) >= document.body.offsetHeight) {
+        if ((window.pageYOffset + window.innerHeight) >= document.body.offsetHeight && document.documentElement.offsetWidth <= 1366) {
             if (wrapper.contains(dialog)) {
                 if (typeof dialog.showModal === 'function') {
                     dialog.style.display = 'block'
@@ -92,48 +85,36 @@ const init = () => {
         }
     }
 
-    angleUp.addEventListener('click', e => {
-        document.documentElement.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        })
-    })
-
     function updateInfo(event) {
-        const followers = followersContainer.querySelector('#followers')
-        const likes = likesContainer.querySelector('#likes')
         const target = event.target
 
         if (target) {
             if (target.id == 'like') {
                 if (target.textContent != 'Liked') {
-                    likes.textContent = 1
                     target.textContent = 'Liked'
                     target.classList.add('clicked')
+                    state.liked = true
                 } else {
-                    likes.textContent = 0
                     target.textContent = 'Like'
                     target.classList.remove('clicked')
+                    state.liked = false
                 }
             }
 
             if (target.id == 'follow') {
                 if (target.textContent != 'Following') {
-                    followers.textContent = 1
                     target.textContent = 'Following'
                     target.classList.add('clicked')
+                    state.followed = true
                 } else {
-                    followers.textContent = 0
                     target.textContent = 'Follow'
                     target.classList.remove('clicked')
+                    state.followed = false
                 }
             }
-
-            window.localStorage.setItem('profile', JSON.stringify({
-                followers: followers.textContent,
-                likes: likes.textContent
-            }))
         }
+
+        window.localStorage.setItem('profile', JSON.stringify(state))
     }
 }
 
