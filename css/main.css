@@ -181,26 +181,9 @@ body .card-wrapper .content .header .buttons .clicked {
 body .card-wrapper .content .header .buttons .clicked:hover {
   background: linear-gradient(to right, purple, #f72585);
 }
-body .card-wrapper .content .hobby-section {
-  margin-top: 1em;
-}
-body .card-wrapper .content .hobby-section ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-  margin-bottom: 1em;
-  justify-content: center;
-}
-body .card-wrapper .content .hobby-section ul li {
-  padding: 0.5rem;
-}
-body .card-wrapper .content .hobby-section ul li::first-letter {
-  color: #666;
-}
 body .card-wrapper .content .skills-section {
   padding: 1em;
+  margin-top: 2rem;
 }
 body .card-wrapper .content .skills-section ul {
   display: grid;
@@ -255,6 +238,24 @@ body .card-wrapper .content .skill-items li::after, body .card-wrapper .content 
 }
 body .card-wrapper .content .skill-items li::after {
   transform: rotate(-4deg);
+}
+body .card-wrapper .content .hobby-section {
+  margin-top: 1em;
+}
+body .card-wrapper .content .hobby-section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+  margin-bottom: 1em;
+  justify-content: center;
+}
+body .card-wrapper .content .hobby-section ul li {
+  padding: 0.5rem;
+}
+body .card-wrapper .content .hobby-section ul li::first-letter {
+  color: #666;
 }
 body .card-wrapper .content .projects-section {
   margin-top: 0.4em;

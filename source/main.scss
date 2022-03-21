@@ -216,34 +216,9 @@ body {
                 
             }
 
-            .hobby-section {
-                margin-top: 1em;
-                
-                ul {
-                    list-style-type: none;
-                    margin: 0;
-                    padding: 0;
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-                    margin-bottom: 1em;
-                    justify-content: center;
-
-                    li {
-                        // background: #f72585;
-                        padding: .5rem;
-                        // color: white;
-                        // border-radius: 30px;
-                        // outline: 1px solid blue;
-
-                        &::first-letter {
-                            color: #666;
-                        }
-                    }
-                }
-            }
-
             .skills-section {
                 padding: 1em;
+                margin-top: 2rem;
 
                 ul {
                     display: grid;
@@ -305,6 +280,32 @@ body {
     
             .skill-items li::after {
                 transform: rotate(-4deg);
+            }
+
+            .hobby-section {
+                margin-top: 1em;
+                
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+                    margin-bottom: 1em;
+                    justify-content: center;
+
+                    li {
+                        // background: #f72585;
+                        padding: .5rem;
+                        // color: white;
+                        // border-radius: 30px;
+                        // outline: 1px solid blue;
+
+                        &::first-letter {
+                            color: #666;
+                        }
+                    }
+                }
             }
     
             .projects-section {
