@@ -24,13 +24,13 @@ body .card-wrapper {
   width: 100%;
   max-width: 35rem;
 }
-body .card-wrapper .img-cover-wrapper {
+body .card-wrapper .video-cover-wrapper {
   position: relative;
   height: 30em;
   clip-path: polygon(0 0, 100% 0, 100% 44%, 0 53%);
   overflow: hidden;
 }
-body .card-wrapper .img-cover-wrapper::after {
+body .card-wrapper .video-cover-wrapper::after {
   content: "";
   display: block;
   position: absolute;
@@ -40,10 +40,10 @@ body .card-wrapper .img-cover-wrapper::after {
   pointer-events: none;
   transition: opacity 0.5s ease;
 }
-body .card-wrapper .img-cover-wrapper:hover::after {
+body .card-wrapper .video-cover-wrapper:hover::after {
   opacity: 0;
 }
-body .card-wrapper .img-cover-wrapper p {
+body .card-wrapper .video-cover-wrapper p {
   position: absolute;
   top: calc(25% - 1em);
   left: 50%;
@@ -53,24 +53,26 @@ body .card-wrapper .img-cover-wrapper p {
   font-weight: bolder;
   z-index: 999;
 }
-body .card-wrapper .img-cover-wrapper:hover p {
+body .card-wrapper .video-cover-wrapper:hover p {
   display: none;
 }
-body .card-wrapper .img-cover-wrapper .img-cover {
+body .card-wrapper .video-cover-wrapper .video-cover {
   filter: blur(2px);
 }
-body .card-wrapper .img-cover-wrapper .img-cover img {
+body .card-wrapper .video-cover-wrapper .video-cover video {
   object-fit: cover;
   object-position: center;
   transition: height 0.5s ease;
+  width: 100%;
+  height: 100%;
 }
-body .card-wrapper .img-cover-wrapper .img-cover:hover img {
+body .card-wrapper .video-cover-wrapper .video-cover:hover video {
   height: 55%;
 }
-body .card-wrapper .img-cover-wrapper .img-cover:hover {
+body .card-wrapper .video-cover-wrapper .video-cover:hover {
   filter: blur(0px);
 }
-body .card-wrapper .img-cover-wrapper .img-cover img, body .card-wrapper .img-cover-wrapper .img-cover {
+body .card-wrapper .video-cover-wrapper .video-cover img, body .card-wrapper .video-cover-wrapper .video-cover {
   width: 100%;
   height: 100%;
 }
@@ -253,6 +255,7 @@ body .card-wrapper .content .hobby-section ul {
 }
 body .card-wrapper .content .hobby-section ul li {
   padding: 0.5rem;
+  padding-bottom: 0;
 }
 body .card-wrapper .content .hobby-section ul li::first-letter {
   color: #666;

@@ -1,7 +1,7 @@
 const init = () => {
     const wrapper = document.querySelector('.wrapper')
-    const coverImg = wrapper.querySelector('.img-cover img')
-    const addBtn = wrapper.querySelector('.fa-cog')
+    const videoCoverWrapper = wrapper.querySelector('.video-cover-wrapper')
+    const video = videoCoverWrapper.querySelector('video')
     const dialog = wrapper.querySelector('dialog')
     const header = wrapper.querySelector('.header')
     const likeBtn = header.querySelector('#like')
@@ -25,35 +25,14 @@ const init = () => {
         }
     }
 
+    videoCoverWrapper.addEventListener('mouseover', e => video.play())
+    videoCoverWrapper.addEventListener('mouseout', e => video.pause())
+
     closeBtn.addEventListener('click', e => dialog.remove())
 
     header.addEventListener('click', e => {
         const target = e.target // the btn that triggers the event listener
         updateInfo(target)
-    })
-
-    addBtn.addEventListener('click', e => {
-        const input = document.createElement('input')
-        input.type = 'file'
-        input.click()
-
-        input.onchange = function(e) {
-            if (e.target.files[0]) {
-                const reader = new FileReader
-                const file = this.files[0]
-                const type = file.type
-
-                if (type.split('/')[0] == 'image') {
-                    reader.onload = function() {
-                        coverImg.src = reader.result
-                    }
-
-                    reader.readAsDataURL(file)
-                }
-            }
-        }
-
-        input.remove()
     })
 
     document.onscroll = function(e) {
