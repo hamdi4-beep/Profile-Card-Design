@@ -55,9 +55,22 @@ body .card-wrapper .video-cover-wrapper .video-cover, body .card-wrapper .video-
 }
 body .card-wrapper .social-links {
   position: absolute;
-  top: 0;
+  top: calc(25% - 5.3rem);
   left: 0rem;
   padding: 1em;
+  transform: rotate(-4.3deg);
+  /* .fa-facebook-f {
+      color: #385898;
+  }
+
+  .fa-github-alt {
+      color: #24292f;
+  }
+
+  .fa-twitter {
+      color: #1d9bf0;
+  } */
+  color: white;
 }
 body .card-wrapper .social-links a {
   text-decoration: none;
@@ -68,18 +81,10 @@ body .card-wrapper .social-links .fab {
   margin-inline: 0.2em;
   transform: none;
   transition: transform 0.5s ease;
+  color: white;
 }
 body .card-wrapper .social-links .fab:hover {
   transform: rotate(360deg);
-}
-body .card-wrapper .social-links .fa-facebook-f {
-  color: #385898;
-}
-body .card-wrapper .social-links .fa-github-alt {
-  color: #24292f;
-}
-body .card-wrapper .social-links .fa-twitter {
-  color: #1d9bf0;
 }
 body .card-wrapper .content {
   text-align: center;
@@ -310,6 +315,11 @@ body dialog span {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 560px) {
+  .wrapper .social-links {
+    display: none;
+  }
+}
 @media only screen and (max-width: 425px) {
   body {
     padding: 0;

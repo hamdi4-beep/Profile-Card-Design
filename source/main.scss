@@ -60,9 +60,10 @@ body {
 
         .social-links {
             position: absolute;
-            top: 0;
+            top: calc(25% - 5.3rem);
             left: 0rem;
             padding: 1em;
+            transform: rotate(-4.3deg);
 
             a {
                 text-decoration: none;
@@ -74,13 +75,14 @@ body {
                 margin-inline: .2em;
                 transform: none;
                 transition: transform .5s ease;
+                color: white;
 
                 &:hover {
                     transform: rotate(360deg);
                 }
             }
 
-            .fa-facebook-f {
+            /* .fa-facebook-f {
                 color: #385898;
             }
 
@@ -90,7 +92,9 @@ body {
 
             .fa-twitter {
                 color: #1d9bf0;
-            }
+            } */
+
+            color: white;
         }
     
         .content {
@@ -367,6 +371,12 @@ body {
             color: #f72585;
             cursor: pointer;
         }
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .wrapper .social-links {
+        display: none;
     }
 }
 

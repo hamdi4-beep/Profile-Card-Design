@@ -28,7 +28,7 @@ const init = () => {
     
     audio.addEventListener('click', () => {
         if (video.muted == false) video.muted = true
-        else video.muted = false
+        else video.muted = !video.muted
     })
 
     closeBtn.addEventListener('click', e => dialog.remove())
