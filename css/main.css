@@ -175,8 +175,11 @@ body .card-wrapper .content .header .buttons button:first-child {
   margin-right: 0.5em;
 }
 body .card-wrapper .content .header .buttons .clicked {
-  background: #f72585;
+  background: linear-gradient(to right, purple, #f72585);
   color: white;
+}
+body .card-wrapper .content .header .buttons .clicked:hover {
+  background: linear-gradient(to right, purple, #f72585);
 }
 body .card-wrapper .content .hobby-section {
   margin-top: 1em;
@@ -186,16 +189,15 @@ body .card-wrapper .content .hobby-section ul {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
-  gap: 0.5em;
+  grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
   margin-bottom: 1em;
   justify-content: center;
 }
 body .card-wrapper .content .hobby-section ul li {
-  background: linear-gradient(to top left, #f72585, #800080);
-  padding: 0.5rem 1em;
-  color: white;
-  border-radius: 30px;
+  padding: 0.5rem;
+}
+body .card-wrapper .content .hobby-section ul li::first-letter {
+  color: #666;
 }
 body .card-wrapper .content .skills-section {
   padding: 1em;
