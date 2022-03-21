@@ -24,10 +24,7 @@ const init = () => {
             updateInfo(followBtn)
         }
     }
-
-    videoCoverWrapper.addEventListener('mouseover', e => video.play())
-    videoCoverWrapper.addEventListener('mouseout', e => video.pause())
-
+    
     closeBtn.addEventListener('click', e => dialog.remove())
 
     header.addEventListener('click', e => {

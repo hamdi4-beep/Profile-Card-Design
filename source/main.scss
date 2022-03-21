@@ -30,21 +30,6 @@ body {
             clip-path: polygon(0 0, 100% 0, 100% 44%, 0 53%);
             overflow: hidden;
     
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                background: radial-gradient(circle, rgba(0 0 0 / .1), rgba(0 0 0 / .7));
-                inset: 0;
-                opacity: 1;
-                pointer-events: none;
-                transition: opacity .5s ease;
-            }
-    
-            &:hover::after {
-                opacity: 0;
-            }
-    
             p {
                 position: absolute;
                 top: calc(25% - 1em);
@@ -56,32 +41,19 @@ body {
                 z-index: 999;
             }
     
-            &:hover p {
-                display: none;
-            }
-    
             .video-cover {
-                filter: blur(2px);
+                height: 100%;
     
                 video {
+                    pointer-events: none;
                     object-fit: cover;
                     object-position: center;
                     transition: height .5s ease;
-                    width: 100%;
-                    height: 100%;
-                }
-    
-                &:hover video {
                     height: 55%;
                 }
     
-                &:hover {
-                    filter: blur(0px);
-                }
-    
-                img, & {
+                &, video {
                     width: 100%;
-                    height: 100%;
                 }
             }
         }
