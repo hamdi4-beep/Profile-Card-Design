@@ -55,13 +55,9 @@ body .card-wrapper .video-cover-wrapper .video-cover, body .card-wrapper .video-
 }
 body .card-wrapper .social-links {
   position: absolute;
-  top: 12.4rem;
+  top: 0;
   left: 0rem;
   padding: 1em;
-  transform: rotate(-4deg);
-  /* .fa-github-alt:hover {
-      // color: #24292f;
-  } */
 }
 body .card-wrapper .social-links a {
   text-decoration: none;
@@ -72,15 +68,17 @@ body .card-wrapper .social-links .fab {
   margin-inline: 0.2em;
   transform: none;
   transition: transform 0.5s ease;
-  color: white;
 }
 body .card-wrapper .social-links .fab:hover {
   transform: rotate(360deg);
 }
-body .card-wrapper .social-links .fa-facebook-f:hover {
+body .card-wrapper .social-links .fa-facebook-f {
   color: #385898;
 }
-body .card-wrapper .social-links .fa-twitter:hover {
+body .card-wrapper .social-links .fa-github-alt {
+  color: #24292f;
+}
+body .card-wrapper .social-links .fa-twitter {
   color: #1d9bf0;
 }
 body .card-wrapper .content {
@@ -279,16 +277,20 @@ body .card-wrapper .content .projects-section .projects .project .title-wrapper 
   z-index: 2;
   font-size: 1.5ch;
 }
-body .card-wrapper .fa-cog {
+body .card-wrapper .sound {
   position: absolute;
   font-size: 1.6rem;
-  top: 7em;
-  right: 0.5em;
+  right: 0rem;
+  top: calc(50% - 4.3rem);
+  transform: translateX(-50%);
+  z-index: 999;
+  width: 30px;
+  height: 30px;
   color: white;
   cursor: pointer;
   transition: color 0.5s ease;
 }
-body .card-wrapper .fa-cog:hover {
+body .card-wrapper .sound:hover {
   color: #DDD;
 }
 body dialog {
@@ -315,24 +317,6 @@ body dialog span {
 
   .wrapper .card-wrapper .content .skills-section ul {
     width: 16rem;
-  }
-
-  .wrapper .card-wrapper .fa-cog {
-    right: 2rem;
-  }
-
-  .wrapper .card-wrapper .social-links {
-    transform: none;
-    top: 9em;
-    left: 1.5rem;
-    padding: 0;
-  }
-  .wrapper .card-wrapper .social-links .fab {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  .wrapper .card-wrapper .social-links .fab:not(:last-child) {
-    color: red;
   }
 }
 @media only screen and (min-width: 768px) {

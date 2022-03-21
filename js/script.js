@@ -2,6 +2,7 @@ const init = () => {
     const wrapper = document.querySelector('.wrapper')
     const videoCoverWrapper = wrapper.querySelector('.video-cover-wrapper')
     const video = videoCoverWrapper.querySelector('video')
+    const audio = videoCoverWrapper.querySelector('.sound')
     const dialog = wrapper.querySelector('dialog')
     const header = wrapper.querySelector('.header')
     const likeBtn = header.querySelector('#like')
@@ -25,6 +26,11 @@ const init = () => {
         }
     }
     
+    audio.addEventListener('click', () => {
+        if (video.muted == false) video.muted = true
+        else video.muted = false
+    })
+
     closeBtn.addEventListener('click', e => dialog.remove())
 
     header.addEventListener('click', e => {

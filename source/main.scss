@@ -60,10 +60,9 @@ body {
 
         .social-links {
             position: absolute;
-            top: 12.4rem;
+            top: 0;
             left: 0rem;
             padding: 1em;
-            transform: rotate(-4deg);
 
             a {
                 text-decoration: none;
@@ -75,22 +74,21 @@ body {
                 margin-inline: .2em;
                 transform: none;
                 transition: transform .5s ease;
-                color: white;
 
                 &:hover {
                     transform: rotate(360deg);
                 }
             }
 
-            .fa-facebook-f:hover {
+            .fa-facebook-f {
                 color: #385898;
             }
 
-            /* .fa-github-alt:hover {
-                // color: #24292f;
-            } */
+            .fa-github-alt {
+                color: #24292f;
+            }
 
-            .fa-twitter:hover {
+            .fa-twitter {
                 color: #1d9bf0;
             }
         }
@@ -333,11 +331,15 @@ body {
             }
         }
     
-        .fa-cog {
+        .sound {
             position: absolute;
             font-size: 1.6rem;
-            top: 7em;
-            right: .5em;
+            right: 0rem;
+            top: calc(50% - 4.3rem);
+            transform: translateX(-50%);
+            z-index: 999;
+            width: 30px;
+            height: 30px;
             color: white;
             cursor: pointer;
             transition: color .5s ease;
@@ -375,26 +377,6 @@ body {
 
     .wrapper .card-wrapper .content .skills-section ul {
         width: 16rem;
-    }
-
-    .wrapper .card-wrapper .fa-cog {
-        right: 2rem;
-    }
-
-    .wrapper .card-wrapper .social-links {
-        transform: none;
-        top: 9em;
-        left: 1.5rem;
-        padding: 0;
-
-        .fab {
-            display: block;
-            margin-bottom: .5rem;
-
-            &:not(:last-child) {
-                color: red;
-            }
-        }
     }
 }
 
