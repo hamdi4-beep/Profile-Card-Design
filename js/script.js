@@ -15,7 +15,7 @@ const init = () => {
         './media/wallpaper one.mp4',
         './media/wallpaper two.mp4',
         './media/wallpaper three.mp4',
-        './media/wallpaper four.mp4'
+        './media/wallpaper six.mp4'
     ]
     
     let state = {
