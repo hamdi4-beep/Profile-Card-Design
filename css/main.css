@@ -24,41 +24,52 @@ body .card-wrapper {
   width: 100%;
   max-width: 35rem;
 }
-body .card-wrapper .video-cover-wrapper {
+body .card-wrapper .banner-cover-wrapper {
+  background: black;
   position: relative;
   height: 30em;
   clip-path: polygon(0 0, 100% 0, 100% 44%, 0 53%);
   overflow: hidden;
 }
-body .card-wrapper .video-cover-wrapper p {
-  position: absolute;
-  top: calc(25% - 1em);
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-  font-size: 2.5ch;
-  font-weight: bolder;
-  z-index: 999;
-}
-body .card-wrapper .video-cover-wrapper .video-cover {
+body .card-wrapper .banner-cover-wrapper .banner-cover {
   height: 100%;
 }
-body .card-wrapper .video-cover-wrapper .video-cover video {
+body .card-wrapper .banner-cover-wrapper .banner-cover video, body .card-wrapper .banner-cover-wrapper .banner-cover img {
   pointer-events: none;
   object-fit: cover;
   object-position: center;
   transition: height 0.5s ease;
   height: 55%;
 }
-body .card-wrapper .video-cover-wrapper .video-cover, body .card-wrapper .video-cover-wrapper .video-cover video {
+body .card-wrapper .banner-cover-wrapper .banner-cover, body .card-wrapper .banner-cover-wrapper .banner-cover video, body .card-wrapper .banner-cover-wrapper .banner-cover img {
   width: 100%;
+}
+body .card-wrapper .banner-cover-wrapper .dots {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  display: flex;
+  gap: 0.5rem;
+}
+body .card-wrapper .banner-cover-wrapper .dots > * {
+  border: 1px solid white;
+  border-radius: 100%;
+  padding: 0.4rem;
+}
+body .card-wrapper .banner-cover-wrapper .dots > *:hover {
+  background: white;
+}
+body .card-wrapper .banner-cover-wrapper .ticked {
+  background: white;
 }
 body .card-wrapper .social-links {
   position: absolute;
   top: calc(25% - 5.3rem);
   left: 0rem;
   padding: 1em;
-  transform: rotate(-4.3deg);
+  transform: rotate(-4deg);
   /* .fa-facebook-f {
       color: #385898;
   }
@@ -118,8 +129,9 @@ body .card-wrapper .content .header .sub-header {
   align-items: center;
   justify-content: center;
   gap: 1em;
-  font-size: small;
-  font-weight: lighter;
+  font-size: medium;
+  font-weight: regular;
+  opacity: 0.8;
 }
 body .card-wrapper .content .header .sub-header::before, body .card-wrapper .content .header .sub-header::after {
   content: "";
@@ -241,9 +253,8 @@ body .card-wrapper .content .hobby-section ul li::first-letter {
   color: #666;
 }
 body .card-wrapper .content .projects-section {
-  margin-top: 0.4em;
+  margin-top: 1rem;
   padding: 1em;
-  border-top: 1px solid #DDD;
   text-align: center;
 }
 body .card-wrapper .content .projects-section .projects {
@@ -282,20 +293,18 @@ body .card-wrapper .content .projects-section .projects .project .title-wrapper 
   z-index: 2;
   font-size: 1.5ch;
 }
-body .card-wrapper .sound {
+body .card-wrapper .fa-edit {
   position: absolute;
   font-size: 1.6rem;
-  right: 0rem;
-  top: calc(50% - 4.3rem);
-  transform: translateX(-50%);
+  right: 1rem;
+  top: calc(50% - 4.2rem);
+  transform: rotate(-4.3deg);
   z-index: 999;
-  width: 30px;
-  height: 30px;
   color: white;
   cursor: pointer;
   transition: color 0.5s ease;
 }
-body .card-wrapper .sound:hover {
+body .card-wrapper .fa-edit:hover {
   color: #DDD;
 }
 body dialog {

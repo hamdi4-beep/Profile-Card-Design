@@ -1,17 +1,43 @@
 const init = () => {
     const wrapper = document.querySelector('.wrapper')
-    const videoCoverWrapper = wrapper.querySelector('.video-cover-wrapper')
-    const video = videoCoverWrapper.querySelector('video')
-    const audio = videoCoverWrapper.querySelector('.sound')
+    const bannerCoverWrapper = wrapper.querySelector('.banner-cover-wrapper')
+    const video = bannerCoverWrapper.querySelector('video')
     const dialog = wrapper.querySelector('dialog')
     const header = wrapper.querySelector('.header')
     const likeBtn = header.querySelector('#like')
     const followBtn = header.querySelector('#follow')
     const closeBtn = wrapper.querySelector('#close')
+    const dots = wrapper.querySelectorAll('.vid')
+    const dotsWrapper = dots[0].parentElement
+    const map = new Map
+
+    const vids = [
+        './media/wallpaper one.mp4',
+        './media/wallpaper two.mp4',
+        './media/wallpaper three.mp4',
+        './media/wallpaper four.mp4'
+    ]
     
     let state = {
         liked: false,
         followed: false,
+    }
+
+    for (let i=0; i<vids.length; i++) {
+        map.set(dots[i], vids[i])
+        dots[i].onclick = function(e) {
+            if (video.src != vids[i]) {
+                video.src = vids[i]
+            }
+
+            for (const dot of dots) {
+                if (e.target == dot) {
+                    e.target.classList.add('ticked')
+                } else {
+                    if (dot.classList.contains('ticked')) dot.classList.remove('ticked')
+                }
+            }
+        }
     }
 
     if (window.localStorage.getItem('profile')) {
@@ -25,10 +51,9 @@ const init = () => {
             updateInfo(followBtn)
         }
     }
-    
-    audio.addEventListener('click', () => {
-        if (video.muted == false) video.muted = true
-        else video.muted = !video.muted
+
+    bannerCoverWrapper.addEventListener('click', e => {
+        if (e.target.className == 'banner-cover') video.muted = !video.muted
     })
 
     closeBtn.addEventListener('click', e => dialog.remove())
