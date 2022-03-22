@@ -8,14 +8,13 @@ const init = () => {
     const followBtn = header.querySelector('#follow')
     const closeBtn = wrapper.querySelector('#close')
     const dots = wrapper.querySelectorAll('.vid')
-    const dotsWrapper = dots[0].parentElement
     const map = new Map
 
     const vids = [
         './media/wallpaper one.mp4',
         './media/wallpaper two.mp4',
         './media/wallpaper three.mp4',
-        './media/wallpaper six.mp4'
+        './media/wallpaper four.mp4'
     ]
     
     let state = {
