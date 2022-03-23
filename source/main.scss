@@ -41,13 +41,16 @@ body {
                 video, img {
                     pointer-events: none;
                     object-fit: cover;
-                    object-position: center;
-                    transition: height .5s ease;
+                    transition: all .5s ease;
                     height: 55%;
                 }
     
                 &, video, img {
                     width: 100%;
+                }
+
+                &:hover video {
+                    height: 80%;
                 }
             }
 
@@ -61,9 +64,11 @@ body {
                 gap: .5rem;
 
                 & > * {
+                    background: none;
                     border: 1px solid white;
                     border-radius: 100%;
                     padding: .4rem;
+                    transition: background .5s ease;
 
                     &:hover {
                         background: white;
@@ -78,7 +83,7 @@ body {
 
         .social-links {
             position: absolute;
-            top: calc(25% - 5.3rem);
+            top: calc(25% - 7.4rem);
             left: 0rem;
             padding: 1em;
             transform: rotate(-4deg);
@@ -167,6 +172,18 @@ body {
                     }
                 }
 
+                .location-info {
+                    display: flex;
+                    gap: .2rem;
+                    place-content: center;
+                    margin: 1rem;
+                    margin-bottom: .8rem;
+
+                    .fas {
+                        color: purple;
+                    }
+                }
+
                 .buttons {
 
                     button {
@@ -246,7 +263,7 @@ body {
                             width: calc(100% - .8em);
                             clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
                             inset: 0;
-                            opacity: .5;
+                            opacity: .7;
                             transition: all .5s ease;
                             z-index: -1;
                         }
@@ -288,18 +305,20 @@ body {
                     grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
                     margin-bottom: 1em;
                     justify-content: center;
+                    gap: 1rem;
+                    background-color: #EEE;
+                    padding: 2rem;
+                    margin-left: -2rem;
+                    width: calc(100% + 4rem);
 
                     li {
                         // background: #f72585;
                         padding: .5rem;
-                        padding-bottom: 0;
                         // color: white;
                         // border-radius: 30px;
                         // outline: 1px solid blue;
-
-                        &::first-letter {
-                            color: #666;
-                        }
+                        background: white;
+                        border-left: 3px solid purple;
                     }
                 }
             }
@@ -391,7 +410,7 @@ body {
 }
 
 @media only screen and (max-width: 560px) {
-    .wrapper .social-links {
+    .wrapper .HOBBI-links {
         display: none;
     }
 }

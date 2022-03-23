@@ -41,12 +41,14 @@ body .card-wrapper .banner-cover-wrapper .banner-cover {
 body .card-wrapper .banner-cover-wrapper .banner-cover video, body .card-wrapper .banner-cover-wrapper .banner-cover img {
   pointer-events: none;
   object-fit: cover;
-  object-position: center;
-  transition: height 0.5s ease;
+  transition: all 0.5s ease;
   height: 55%;
 }
 body .card-wrapper .banner-cover-wrapper .banner-cover, body .card-wrapper .banner-cover-wrapper .banner-cover video, body .card-wrapper .banner-cover-wrapper .banner-cover img {
   width: 100%;
+}
+body .card-wrapper .banner-cover-wrapper .banner-cover:hover video {
+  height: 80%;
 }
 body .card-wrapper .banner-cover-wrapper .dots {
   position: absolute;
@@ -58,9 +60,11 @@ body .card-wrapper .banner-cover-wrapper .dots {
   gap: 0.5rem;
 }
 body .card-wrapper .banner-cover-wrapper .dots > * {
+  background: none;
   border: 1px solid white;
   border-radius: 100%;
   padding: 0.4rem;
+  transition: background 0.5s ease;
 }
 body .card-wrapper .banner-cover-wrapper .dots > *:hover {
   background: white;
@@ -70,7 +74,7 @@ body .card-wrapper .banner-cover-wrapper .ticked {
 }
 body .card-wrapper .social-links {
   position: absolute;
-  top: calc(25% - 5.3rem);
+  top: calc(25% - 7.4rem);
   left: 0rem;
   padding: 1em;
   transform: rotate(-4deg);
@@ -147,6 +151,16 @@ body .card-wrapper .content .header .sub-header::before, body .card-wrapper .con
 body .card-wrapper .content .header .sub-header::after {
   background: linear-gradient(to right, black, white);
 }
+body .card-wrapper .content .header .location-info {
+  display: flex;
+  gap: 0.2rem;
+  place-content: center;
+  margin: 1rem;
+  margin-bottom: 0.8rem;
+}
+body .card-wrapper .content .header .location-info .fas {
+  color: purple;
+}
 body .card-wrapper .content .header .buttons button {
   background: none;
   border: 1px solid purple;
@@ -214,7 +228,7 @@ body .card-wrapper .content .skills-section ul li::before {
   width: calc(100% - 0.8em);
   clip-path: polygon(0 0, 70% 0, 50% 100%, 0% 100%);
   inset: 0;
-  opacity: 0.5;
+  opacity: 0.7;
   transition: all 0.5s ease;
   z-index: -1;
 }
@@ -248,13 +262,16 @@ body .card-wrapper .content .hobby-section ul {
   grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
   margin-bottom: 1em;
   justify-content: center;
+  gap: 1rem;
+  background-color: #EEE;
+  padding: 2rem;
+  margin-left: -2rem;
+  width: calc(100% + 4rem);
 }
 body .card-wrapper .content .hobby-section ul li {
   padding: 0.5rem;
-  padding-bottom: 0;
-}
-body .card-wrapper .content .hobby-section ul li::first-letter {
-  color: #666;
+  background: white;
+  border-left: 3px solid purple;
 }
 body .card-wrapper .content .projects-section {
   margin-top: 1rem;
@@ -329,7 +346,7 @@ body dialog span {
 }
 
 @media only screen and (max-width: 560px) {
-  .wrapper .social-links {
+  .wrapper .HOBBI-links {
     display: none;
   }
 }
